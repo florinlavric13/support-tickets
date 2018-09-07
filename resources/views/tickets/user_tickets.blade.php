@@ -46,9 +46,15 @@
                                             <span class="label label-danger">{{ $ticket->status }}</span>
                                         @endif
                                     </td>
+
                                     @if($ticket->priority === 'low')
-                                    <td><span class="label label-success">{{ $ticket->priority }}</span></td>
+                                        <td><span class="label label-success">{{ $ticket->priority }}</span></td>
+                                    @elseif($ticket->priority === 'high')
+                                        <td><span class="label label-danger">{{ $ticket->priority }}</span></td>
+                                    @elseif($ticket->priority === 'medium')
+                                        <td><span class="label label-warning">{{ $ticket->priority }}</span></td>
                                     @endif
+
                                     <td>{{ $ticket->updated_at }}</td>
                                 </tr>
                             @endforeach

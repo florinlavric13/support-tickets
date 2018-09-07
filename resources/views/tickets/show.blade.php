@@ -24,6 +24,15 @@
                                 Status: <span class="label label-danger">{{ $ticket->status }}</span>
                             @endif
                         </p>
+                        <p>Priority:
+                            @if($ticket->priority === 'low')
+                                <span class="label label-success">{{ $ticket->priority }}</span>
+                            @elseif($ticket->priority === 'high')
+                                <span class="label label-danger">{{ $ticket->priority }}</span>
+                            @elseif($ticket->priority === 'medium')
+                                <span class="label label-warning">{{ $ticket->priority }}</span>
+                            @endif
+                        </p>
                         <p>Created on: {{ $ticket->created_at->diffForHumans() }}</p>
                     </div>
 
