@@ -15,4 +15,9 @@ class Ticket extends Model
         'message',
         'status'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
