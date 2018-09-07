@@ -20,6 +20,7 @@
                                 <th>Category</th>
                                 <th>Title</th>
                                 <th>Status</th>
+                                <th>Priority</th>
                                 <th>Last Updated</th>
                             </tr>
                             </thead>
@@ -45,6 +46,9 @@
                                             <span class="label label-danger">{{ $ticket->status }}</span>
                                         @endif
                                     </td>
+                                    @if($ticket->priority === 'low')
+                                    <td><span class="label label-success">{{ $ticket->priority }}</span></td>
+                                    @endif
                                     <td>{{ $ticket->updated_at }}</td>
                                 </tr>
                             @endforeach
