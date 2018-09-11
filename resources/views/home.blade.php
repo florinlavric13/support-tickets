@@ -18,7 +18,9 @@
                             </p>
                         @else
                             <p>
-                                See all your <a href="{{ url('my_tickets') }}">tickets</a> or <a href="{{ url('new_ticket') }}">open new ticket</a>
+                                <a class="label label-success" href="{{ url('new_ticket')}}">Add new ticket</a>
+
+                                {{--See all your <a ">tickets</a> or <a href="{{ url('new_ticket') }}">open new ticket</a>--}}
                             </p>
                         @endif
                     </div>

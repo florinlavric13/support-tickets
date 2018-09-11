@@ -15,7 +15,6 @@
                     @include('includes.flash')
 
                     <div class="ticket-info">
-                        <p>{{ $ticket->message }}</p>
                         <p>Category: {{ $category->name }}</p>
                         <p>
                             @if ($ticket->status === 'Open')
@@ -34,6 +33,7 @@
                             @endif
                         </p>
                         <p>Created on: {{ $ticket->created_at->diffForHumans() }}</p>
+                        <p>{{Auth::user()->name}}: {{ $ticket->message }}</p>
                     </div>
 
                     <hr>
@@ -54,7 +54,7 @@
                     {{--</div>--}}
 
                     <div class="comment-form">
-                        <form action="{{ url('comment') }}" method="POST" class="form">
+                        <form action="{{ url('/tickets/edit/' . $ticket->ticket_id) }}" method="POST" class="form">
                             {!! csrf_field() !!}
 
                             <input type="hidden" name="ticket_id" value="{{ $ticket->id }}">

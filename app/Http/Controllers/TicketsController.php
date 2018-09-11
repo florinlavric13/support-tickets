@@ -97,4 +97,15 @@ class TicketsController extends Controller
 
         return redirect()->back()->with("status", "The ticket has been closed.");
     }
+
+    public function edit(Request $request, $ticket_id, AppMailer $mailer)
+    {
+
+        $ticket = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
+        $ticket->message = $request->input('comment');
+        $ticket->save();
+
+        return redirect()->back()->with("status", "The ticket has been updated.");
+    }
+
 }

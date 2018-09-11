@@ -22,6 +22,7 @@
                                 <th>Status</th>
                                 <th>Priority</th>
                                 <th>Last Updated</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -56,9 +57,11 @@
                                     @endif
 
                                     <td>{{ $ticket->updated_at }}</td>
+                                    <td><a href="{{ url('tickets/'. $ticket->ticket_id) }}">Edit</a></td>
                                 </tr>
                             @endforeach
                             </tbody>
+
                         </table>
 
                         {{ $tickets->render() }}

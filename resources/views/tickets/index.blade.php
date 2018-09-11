@@ -20,9 +20,8 @@
                                 <th>Category</th>
                                 <th>Title</th>
                                 <th>Status</th>
-                                <th>Priority</th>
                                 <th>Last Updated</th>
-                                <th style="text-align:center" colspan="2">Actions</th>
+                                <th style="text-align:center" colspan="2">Action</th>
                             </tr>
                             </thead>
                             <tbody>
