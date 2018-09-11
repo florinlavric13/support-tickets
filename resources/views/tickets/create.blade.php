@@ -66,6 +66,25 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('assigned') ? ' has-error' : '' }}">
+                            <label for="assigned" class="col-md-4 control-label">Assigned</label>
+
+                            <div class="col-md-6">
+                                <select id="assigned" type="" class="form-control" name="assigned">
+                                    <option value="">Select User</option>
+                                    @foreach ($users as $user)
+                                        <option value="{{ $user->name }}">{{ $user->name }}</option>
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('priority'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('priority') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('message') ? ' has-error' : '' }}">
                             <label for="message" class="col-md-4 control-label">Message</label>
 

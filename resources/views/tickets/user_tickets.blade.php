@@ -21,6 +21,7 @@
                                 <th>Title</th>
                                 <th>Status</th>
                                 <th>Priority</th>
+                                <th>Assigned</th>
                                 <th>Last Updated</th>
                                 <th>Action</th>
                             </tr>
@@ -55,6 +56,11 @@
                                     @elseif($ticket->priority === 'medium')
                                         <td><span class="label label-warning">{{ $ticket->priority }}</span></td>
                                     @endif
+                                    <td>
+
+                                        {{ $ticket->assigned }}
+
+                                    </td>
 
                                     <td>{{ $ticket->updated_at }}</td>
                                     <td><a href="{{ url('tickets/'. $ticket->ticket_id) }}">Edit</a></td>

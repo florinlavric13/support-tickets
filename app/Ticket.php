@@ -12,6 +12,7 @@ class Ticket extends Model
         'ticket_id',
         'title',
         'priority',
+        'assigned',
         'message',
         'status'
     ];

@@ -38,10 +38,7 @@
             </button>
 
             <!-- Branding Image -->
-            {{--<a class="navbar-brand" href="{{ url('/home') }}">--}}
-                {{--Support Ticket--}}
-            {{--</a>--}}
-            <a href="{{ url('/home') }}"> <img src="{{ asset('/svg/logo2.png') }} " style="width: 60px;"></a>
+            <a  href="{{ url('/home') }}"> <img src="{{ asset('/svg/logo2.png') }} " style="width: 60px;"></a>
             Support Ticket
         </div>
 
@@ -55,7 +52,9 @@
                 @else
                     @if (Auth::user()->is_admin)
                         <li><a href="{{ url('admin/tickets') }}">Tickets</a></li>
-                    @endif
+                        @else
+                            <li><a href="{{ url('/users') }}">All Users</a></li>
+                        @endif
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
@@ -63,7 +62,7 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('home') }}"><i class="fa fa-btn fa-home"></i>Home</a></li>
-                            <li><a href="{{ url('new_ticket') }}"><i class="fa fa-btn fa-ticket"></i>Add new Ticket</a></li>
+                            <li><a href="{{ url('new_ticket') }}"><i class="fa fa-btn fa-plus-square"></i>Add new Ticket</a></li>
                             <li><a href="{{ url('my_tickets') }}"><i class="fa fa-btn fa-ticket"></i>My Tickets</a></li>
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>

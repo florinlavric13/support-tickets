@@ -65,7 +65,7 @@
                             <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
                             <div class="col-md-6">
                                 <select class="form-control" id="role" name="role">
-                                    <option value="0">User</option>
+                                    <option value="0" selected="selected">User</option>
                                     <option value="10" selected="selected">Admin</option>
                                 </select>
                             </div>
