@@ -27,7 +27,10 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        $items = User::all();
+        $view = view('admin.users.index', compact('items'));
+
+        return $view;
     }
     /**
      * Store a newly created resource in storage.
@@ -50,7 +53,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-       //
+        //
     }
     /**
      * Show the form for editing the specified resource.

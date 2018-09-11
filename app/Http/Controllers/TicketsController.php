@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Category;
+use App\User;
 use App\Ticket;
 use App\Mailers\AppMailer;
 
@@ -21,7 +22,8 @@ class TicketsController extends Controller
     public  function create() {
 
         $categories = Category::all();
-        $view = view('tickets.create', compact('categories'));
+        $users = User::all();
+        $view = view('tickets.create',["categories"=>$categories, "users" => $users]);
 
         return $view;
     }
@@ -42,6 +44,7 @@ class TicketsController extends Controller
             'category_id'  => $request->input('category'),
             'priority'  => $request->input('priority'),
             'message'   => $request->input('message'),
+            'assigned'   => $request->input('assigned'),
             'status'    => "Open",
 
         ]);
@@ -103,6 +106,7 @@ class TicketsController extends Controller
 
         $ticket = Ticket::where('ticket_id', $ticket_id)->firstOrFail();
         $ticket->message = $request->input('comment');
+        $ticket->assigned = $request->input('assigned');
         $ticket->save();
 
         return redirect()->back()->with("status", "The ticket has been updated.");
